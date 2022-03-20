@@ -4,7 +4,8 @@ type arr2 = [3, 2, 1]
 type head1 = First<arr1> // expected to be 'a'
 type head2 = First<arr2> // expected to be 3
 
-// 这里面的 infer F 代表需要推断的 T 里面的第一个元素类型, 如果 T 符合 [infer F, ...any] 这个类型的数组, 就会返回第一个元素 F, 基本上在 泛型传递的时候就已经规定了传入的类型会符合 [infer F, ...any], 这里只是把它取出来
+// 这里面的 infer F 代表需要推断的 T 里面的第一个元素类型, 如果 T 符合 [infer F, ...any] 这个类型的数组, 就会返回第一个元素 F,
+// 基本上在泛型传递的时候(T extends any[])就已经规定了传入的类型会符合 [infer F, ...any], 这里只是把它取出来
 type First<T extends any[]> = T extends [infer F, ...any] ? F : never
 
 // 这个里面是如果符合条件则返回第一个元素类型, 不然将自身返回
