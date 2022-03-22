@@ -1,8 +1,10 @@
+// 这个类型集合本质就是从"类型集合"里面提取出来差集
+
 // 从T中提取出比U多的类型 (这种 'a' | 'b' | 'c' 类型好像不能出现 'a' | 'b' | 'c'| number) number类型有很多符合本类型的值,如:1,2,3....,
 // "c" 则只会有一个符合本类型的值 就是 "c"
 type MyExclude<T, U> = T extends U ? never : T
 
-// 实现 //  'a' | 'b' includes("a") 'a' | 'b' includes("b") 多次判断, 本质就是从类型集合里面提取出来差集
+// 实现 //  'a' | 'b' includes("a") 'a' | 'b' includes("b") 多次判断,
 type T1 = MyExclude<'a' | 'b' | 'c', 'a' | 'b'>
 // 内置
 type T2 = Exclude<'a' | 'b' | 'c', 'a' | 'b'>
