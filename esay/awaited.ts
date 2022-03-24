@@ -12,3 +12,5 @@ type c = MyAwaited<Promise<Promise<string>>> //expected string
 type d = MyAwaited<Promise<number>> //expected number
 
 export {}
+
+// type c = Awaited
